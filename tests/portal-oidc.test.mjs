@@ -1,0 +1,6 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {oidcConfig,newTransaction,readTransaction,matchesState,challenge} from '../lib/portal-oidc.mjs';
+const env={PORTAL_OIDC_ENABLED:'true',PORTAL_OIDC_ISSUER:'http://127.0.0.1:8180/realms/zenith',PORTAL_OIDC_CLIENT_ID:'zenith-portal',PORTAL_OIDC_CLIENT_SECRET:'test-only-client-secret',PORTAL_OIDC_SUBJECT:'known-subject',PORTAL_PUBLIC_ORIGIN:'http://127.0.0.1:3014',PORTAL_SESSION_SECRET:'a'.repeat(64)};
+test('shared sign-in remains disabled until explicitly configured',()=>{assert.equal(oidcConfig({}),null);assert.throws(()=>oidcConfig({PORTAL_OIDC_ENABLED:'true'}));assert.throws(()=>oidcConfig({...env,PORTAL_OIDC_ISSUER:'http://example.com/realm'}));});
+test('transaction is authenticated, expires, and binds state',()=>{const config=oidcConfig(env),tx=newTransaction(config),decoded=readTransaction(tx.cookie,config);assert.equal(decoded.state,tx.state);assert.ok(matchesState(tx.state,decoded.state));assert.equal(matchesState(tx.state,'wrong'),false);assert.match(challenge(tx.verifier),/^[A-Za-z0-9_-]{43}$/);assert.equal(readTransaction(tx.cookie,{...config,secret:'b'.repeat(64)}),null);assert.equal(readTransaction(tx.cookie.slice(0,-4)+'AAAA',config),null);});

@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import {createServer} from 'node:http';
+import {spawn} from 'node:child_process';
+import {createRequire} from 'node:module';
+import {hashPassword,createSession,SESSION_COOKIE,SESSION_SECONDS} from '../lib/portal-auth.mjs';
+const require=createRequire(import.meta.url);let app;let logs='';
+const reservation=createServer();await new Promise(resolve=>reservation.listen(0,'127.0.0.1',resolve));const port=reservation.address().port;await new Promise(resolve=>reservation.close(resolve));
+const base='http://127.0.0.1:'+port;
+const auth={PORTAL_ADMIN_EMAIL:'owner@example.test',PORTAL_PASSWORD_HASH:await hashPassword('synthetic-test-password-123'),PORTAL_SESSION_SECRET:'f'.repeat(64)};
+try{
+ app=spawn(process.execPath,[require.resolve('next/dist/bin/next'),'start','--hostname','127.0.0.1','--port',String(port)],{env:{...process.env,...auth,WORKSPACE_ACCESS_MODE:'local',PORTAL_PUBLIC_ORIGIN:base,NAWA_ENABLED:'false',FINAGENT_ENABLED:'false',SUPPLYPILOT_ENABLED:'false'},stdio:['ignore','pipe','pipe']});
+ app.stdout.on('data',d=>logs+=d);app.stderr.on('data',d=>logs+=d);
+ let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/health')).ok){ready=true;break}}catch{}await new Promise(r=>setTimeout(r,100))}assert.ok(ready,logs.slice(-1500));
+ assert.equal((await fetch(base+'/',{redirect:'manual'})).status,307);
+ const publicPage=await fetch(base+'/sign-in');assert.equal(publicPage.status,200);const html=await publicPage.text();
+ for(const word of ['One workspace.','Nawa','FinAgent','SupplyPilot','Planned','Email address'])assert.ok(html.includes(word),word);
+ assert.ok(!html.includes(auth.PORTAL_PASSWORD_HASH));assert.ok(!html.includes(auth.PORTAL_SESSION_SECRET));
+ assert.equal((await fetch(base+'/workspace',{redirect:'manual'})).status,307);
+ assert.equal((await fetch(base+'/api/connections')).status,401);
+ const login=(data,origin=base)=>fetch(base+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(data)});
+ const input={email:auth.PORTAL_ADMIN_EMAIL,password:'synthetic-test-password-123'};
+ assert.equal((await login(input,'https://evil.example')).status,403);
+ assert.equal((await login({...input,password:'wrong'})).status,401);
+ assert.equal((await login(null)).status,400);
+ const signed=await login(input);assert.equal(signed.status,200);const cookie=signed.headers.get('set-cookie');assert.ok(cookie.includes('HttpOnly'));assert.ok(cookie.includes('SameSite=lax'));assert.ok(cookie.includes('Max-Age=28800'));const session=cookie.split(';')[0];
+ assert.equal((await fetch(base+'/workspace',{headers:{Cookie:session}})).status,200);
+ assert.equal((await fetch(base+'/api/connections',{headers:{Cookie:session}})).status,200);
+ const expired=createSession(auth,Date.now()-(SESSION_SECONDS+1)*1000);
+ assert.equal((await fetch(base+'/api/connections',{headers:{Cookie:SESSION_COOKIE+'='+expired}})).status,401);
+ const logout=await fetch(base+'/api/auth/logout',{method:'POST',headers:{Origin:base,Cookie:session},redirect:'manual'});assert.equal(logout.status,303);assert.ok(logout.headers.get('set-cookie').includes('Max-Age=0'));
+ assert.equal((await fetch(base+'/api/auth/logout')).status,405);
+ assert.equal((await fetch(base+'/api/auth/logout',{method:'POST',headers:{Origin:'https://evil.example'}})).status,403);
+ for(const file of ['nawa','finagent','supplypilot'])assert.equal((await fetch(base+'/project-previews/'+file+'.svg')).status,200);
+ console.log('PASS: sign-in, private SSR and API, wrong password, CSRF denial, HttpOnly session, expiry, logout, public thumbnails and secret non-disclosure.');
+}finally{if(app&&app.exitCode===null){app.kill('SIGTERM');await new Promise(resolve=>app.once('exit',resolve))}}
