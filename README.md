@@ -1,5 +1,7 @@
 # Zenith Enterprise AI Workspace
 
+**Featured case study:** [Zenith Enterprise AI Workspace · One portal, four application boundaries](docs/case-study/ZENITH_ENTERPRISE_AI_WORKSPACE_CASE_STUDY.md). A case study on service discovery, health contracts, independent application identity, and tested failure states.
+
 Zenith is a local Next.js portal for exploring and launching Nawa, FinAgent, SupplyPilot and IndustrialAI Sentinel. The repository contains the portal UI, project connection checks, sample workflows and planned platform capabilities. The four business applications are separate projects.
 
 ## Run locally
