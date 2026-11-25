@@ -1,0 +1,83 @@
+/* Shared visual refinement for the existing Zenith portfolio and workspace. */
+.portal-signin,.professional-shell{--ui-accent:#51dded;--ui-border:#27394c;--ui-quiet:#b7c8da;--ui-surface:#0c1725;--ui-raised:#111f2f}
+.portal-signin .signin-showcase{padding-left:clamp(28px,4.1vw,76px);padding-right:clamp(28px,4.1vw,76px)}
+.portal-signin .signin-brand>a{gap:13px}.portal-signin .signin-monogram{width:44px;height:44px;box-shadow:0 0 0 5px #22d3ee0a,0 8px 24px #0005}
+.portal-signin .signin-edition{border-color:#56708555!important;letter-spacing:.13em!important}
+.portal-signin .signin-story{max-width:900px}.portal-signin .signin-story h1{font-weight:700;letter-spacing:-.035em;line-height:1.08;text-wrap:balance}
+.portal-signin .signin-story h1>span{color:#bfcee0!important}.portal-signin .signin-intro{max-width:530px;line-height:1.75;color:#d5dfec!important}
+.portal-signin .signin-principles>span{padding:8px 12px!important;background:#0c1a28d9!important;border:1px solid #31516a!important;color:#d8e8f5!important}
+.portal-signin .signin-section-label,.portal-signin .signin-roadmap-heading{align-items:center;font-size:10px;letter-spacing:.14em}
+.portal-signin .signin-project,.portal-signin .signin-future-card{background:linear-gradient(155deg,#152535,#0b1624 75%)!important;border-color:#30445a!important;border-radius:18px!important;box-shadow:0 14px 35px #0004!important}
+.portal-signin .signin-current-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.portal-signin .signin-project.industrial{--card-accent:#34d399}.portal-signin .signin-project.industrial:before{background:#34d399!important}
+.portal-signin .signin-project-visual,.portal-signin .signin-future-visual{padding:10px 10px 0!important}.portal-signin .signin-project-visual:after,.portal-signin .signin-future-visual:after{inset:10px 10px 0;border-radius:10px}
+.portal-signin .signin-project-visual img,.portal-signin .signin-future-visual img{border-radius:10px!important}
+.portal-signin .signin-project-copy,.portal-signin .signin-future-copy{padding:16px 17px 15px!important}.portal-signin .signin-card-title strong,.portal-signin .signin-future-title strong{font-size:16px!important}
+.portal-signin .signin-project-copy p,.portal-signin .signin-future-copy p{font-size:12px!important;color:#d1deeb!important}
+.portal-signin .signin-card-action{margin-top:auto;padding-top:14px;font-size:11px}.portal-signin .signin-card-action svg{transition:transform .2s ease}.portal-signin .signin-project:hover .signin-card-action svg{transform:translateX(3px)}
+.portal-signin .signin-project-description{padding:12px 14px!important;background:#101e2dcc!important;border-color:#31495d!important}.portal-signin .signin-project-description p{font-size:11px;color:#d0ddec!important}
+.portal-signin .signin-access{background:radial-gradient(ellipse at 85% 10%,#16344a 0,transparent 38%),#09121e!important}
+.portal-signin .signin-access .signin-access-content{max-width:430px;padding:clamp(28px,3vw,44px)!important;border-color:#30465a!important;border-radius:20px!important;background:linear-gradient(160deg,#101e2e,#0b1522 80%)!important;box-shadow:0 28px 65px #0005!important}
+.portal-signin .signin-access-content h2{font-size:clamp(32px,2.6vw,42px);letter-spacing:-.04em}.portal-signin .signin-access-subtitle{font-size:13px;color:#bacbdb!important}
+.portal-signin .signin-form>label,.portal-signin .signin-password-label>label{font-size:12px!important}.portal-signin .signin-form>input,.portal-signin .signin-password-field{min-height:48px!important;border-radius:9px!important}.portal-signin .signin-form input{font-size:13px!important}
+.portal-signin .signin-primary{min-height:49px!important;font-size:13px!important;font-weight:700!important;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.portal-signin .signin-primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 25px #22d3ee35!important}
+.portal-signin .signin-access-content>p>a{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:650}.portal-signin .signin-access-promise>span,.portal-signin .signin-owner-note{font-size:10px}
+.professional-shell .professional-sidebar{box-shadow:8px 0 35px #0002!important}.professional-shell .professional-sidebar .eco-brand>span,.professional-shell .professional-sidebar .workspace-initial{box-shadow:0 0 0 4px #22d3ee0b}
+.professional-shell .professional-sidebar nav button{border-radius:9px!important;transition:background .16s ease,color .16s ease,transform .16s ease}.professional-shell .professional-sidebar nav button:hover{transform:translateX(2px)}
+.professional-shell .professional-sidebar nav button.active{box-shadow:inset 3px 0 #51dded!important}
+.professional-shell .professional-topbar{box-shadow:0 8px 25px #0002!important}.professional-shell .professional-topbar .eco-search{border:1px solid #2a4055!important;border-radius:10px!important}
+.professional-shell .workspace-welcome{border-radius:18px!important;box-shadow:0 18px 40px #0003!important}.professional-shell .workspace-welcome h1{font-size:clamp(27px,2.4vw,36px)!important;letter-spacing:-.035em}
+.professional-shell .ops-summary{gap:14px}.professional-shell .ops-summary>button{border-radius:14px!important;transition:transform .2s ease,border-color .2s ease,background .2s ease}.professional-shell .ops-summary>button:hover{transform:translateY(-3px)}
+.professional-shell .ops-app-section,.professional-shell .enterprise-future,.professional-shell .production-path{margin-top:28px}.professional-shell .ops-section-heading h2,.professional-shell .production-path-head h2{letter-spacing:-.025em}
+.professional-shell .ops-app-grid{gap:16px}.professional-shell .ops-project{border-radius:16px!important;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;box-shadow:0 14px 28px #0003!important}
+.professional-shell .ops-project:hover{transform:translateY(-4px);border-color:#406078!important;box-shadow:0 20px 36px #0006!important}.professional-shell .ops-project-art{filter:saturate(1.05)}
+.professional-shell .ops-project h3{font-size:18px!important;letter-spacing:-.02em}.professional-shell .ops-project-purpose{font-size:12px;line-height:1.6!important}.professional-shell .project-capabilities span{border-radius:20px!important}
+.professional-shell .local-launch-actions>a,.professional-shell .local-launch-actions>button:first-child{border-radius:9px!important;font-weight:700!important;min-height:42px}.professional-shell .local-launch-actions .local-preview-link{min-height:35px}
+.professional-shell .enterprise-future-grid button,.professional-shell .production-path-grid button{border-radius:14px!important;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.professional-shell .enterprise-future-grid button:hover,.professional-shell .production-path-grid button:hover{transform:translateY(-3px);box-shadow:0 14px 30px #0005}
+.professional-shell .panel,.professional-shell .ops-panel,.professional-shell .professional-growth{border-radius:15px!important}.professional-shell .ops-project{border-radius:16px!important}
+.professional-shell :is(button,a,input,select,textarea):focus-visible,.portal-signin :is(button,a,input):focus-visible{outline:3px solid #51dded!important;outline-offset:3px}
+@media(max-width:760px){.portal-signin .signin-access .signin-access-content{padding:26px!important}.portal-signin .signin-project-copy,.portal-signin .signin-future-copy{padding:13px!important}.professional-shell .ops-summary{gap:10px}.professional-shell .ops-app-grid{gap:12px}}
+@media(min-width:1700px){.portal-signin .signin-current-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1200px){.professional-shell .app-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:640px) and (max-width:1199px){.professional-shell .app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.portal-signin *,.professional-shell *{scroll-behavior:auto!important;transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
+
+/* A helpful empty state keeps filtered sample activity understandable. */
+.professional-shell .runs-empty{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:34px 20px;color:#c5d6e5}.professional-shell .runs-empty>svg{color:#51dded}.professional-shell .runs-empty strong{color:#fff;font-size:15px}.professional-shell .runs-empty p{margin:0;font-size:13px}.professional-shell .runs-empty button{margin-top:5px}
+
+/* Keep the portfolio legible and comfortable to use on narrow phones. */
+@media(max-width:520px){
+ .portal-signin .signin-current-grid,.portal-signin .signin-future-grid{grid-template-columns:1fr}
+ .portal-signin .signin-project,.portal-signin .signin-future-card{min-width:0}
+ .portal-signin .signin-project-copy p,.portal-signin .signin-future-copy p{font-size:13px!important;line-height:1.6}
+ .professional-shell .ops-section-heading{align-items:flex-start;flex-wrap:wrap}
+ .professional-shell .ops-section-heading .text-btn{min-height:40px}
+}
+
+/* Editorial enterprise presentation: restrained surfaces and clear hierarchy. */
+.portal-signin .signin-showcase{background-color:#08121f}
+.portal-signin .signin-story h1{font-size:clamp(32px,3.1vw,53px);letter-spacing:-.045em;line-height:1.09}
+.portal-signin .signin-intro{font-size:15px!important;line-height:1.7!important}
+.portal-signin .signin-principles>span{background:transparent!important;border:0!important;padding:5px 16px 5px 0!important;color:#c1d2e1!important}
+.portal-signin .signin-project,.portal-signin .signin-future-card{background:#101c2a!important;border:1px solid #28394b!important;border-radius:12px!important;box-shadow:none!important;overflow:hidden}
+.portal-signin .signin-project-visual,.portal-signin .signin-future-visual{padding:0!important;overflow:hidden}
+.portal-signin .signin-project-visual img,.portal-signin .signin-future-visual img{border-radius:0!important;object-fit:cover}
+.portal-signin .signin-project-visual:after,.portal-signin .signin-future-visual:after{inset:0;border-radius:0}
+.portal-signin .signin-project-copy,.portal-signin .signin-future-copy{padding:18px!important}
+.portal-signin .signin-card-title strong,.portal-signin .signin-future-title strong{font-size:16px!important;letter-spacing:-.01em}
+.portal-signin .signin-project-copy p,.portal-signin .signin-future-copy p{font-size:12px!important;line-height:1.65!important}
+.portal-signin .signin-project-description{background:#122232!important;border-color:#294155!important;border-radius:10px!important}
+.portal-signin .signin-access .signin-access-content{border-radius:14px!important;box-shadow:0 18px 45px #0003!important}
+.professional-shell .workspace-welcome{border-radius:14px!important;box-shadow:none!important}
+.professional-shell .ops-project{border-radius:12px!important;box-shadow:none!important;overflow:hidden}
+.professional-shell .ops-project:hover{box-shadow:0 14px 28px #0003!important}
+.professional-shell .ops-project-art,.professional-shell .enterprise-future-image{object-fit:cover;filter:saturate(.92)}
+.professional-shell .ops-project h3{font-size:19px!important;line-height:1.25;letter-spacing:-.025em}
+.professional-shell .ops-project-purpose{font-size:13px!important;line-height:1.65!important}
+.professional-shell .enterprise-future-grid button{border-radius:12px!important;overflow:hidden}
+.professional-shell .enterprise-future-grid button strong{font-size:16px;line-height:1.35}
+.professional-shell .enterprise-future-grid button small{font-size:12px;line-height:1.65}
+@media(max-width:520px){.portal-signin .signin-story h1{font-size:32px}.portal-signin .signin-project-copy p,.portal-signin .signin-future-copy p{font-size:13px!important}}
+.professional-shell .ops-measures>div{background:#142233!important;border:1px solid #2a4054!important;border-radius:9px!important}
+.professional-shell .ops-measures>div span,.professional-shell .ops-measures>div small{color:#c4d3e1!important}
+.professional-shell .ops-measures>div strong{color:#fff!important}
